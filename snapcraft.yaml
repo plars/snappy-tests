@@ -1,0 +1,36 @@
+name: snappy-tests
+version: 0.1
+summary: Snappy integration tests
+description: Integration tests from snappy
+
+apps:
+    snappy-tests-list:
+        command: snappy-tests -check.list
+        plugs:
+          - home
+    snappy-tests:
+        command: snappy-tests-wrapper
+        plugs:
+          - home
+
+parts:
+    snappy-tests:
+        plugin: x-go-test
+        source-type: git
+        source: https://github.com/ubuntu-core/snappy
+    testdata:
+        plugin: copy
+        source-type: git
+        source: https://github.com/ubuntu-core/snappy
+        files:
+            integration-tests/data/snaps: integration-tests/data/snaps
+            integration-tests/data/dev1.acckey: integration-tests/data/dev1.acckey
+            integration-tests/data/trusted.acckey: integration-tests/data/trusted.acckey 
+    testconfig:
+        plugin: copy
+        files:
+            testconfig.json: integration-tests/data/output/testconfig.json
+            bin/snappy-tests-wrapper: bin/snappy-tests-wrapper
+
+    
+

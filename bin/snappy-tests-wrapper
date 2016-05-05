@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cp -a $SNAP/integration-tests $SNAP_USER_DATA
+cd $SNAP_USER_DATA
+exec $SNAP/bin/snappy-tests $@
