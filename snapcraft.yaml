@@ -17,11 +17,11 @@ parts:
     snappy-tests:
         plugin: x-go-test
         source-type: git
-        source: https://github.com/ubuntu-core/snappy
+        source: https://github.com/snapcore/snapd
     testdata:
         plugin: copy
         source-type: git
-        source: https://github.com/ubuntu-core/snappy
+        source: https://github.com/snapcore/snapd
         files:
             integration-tests/data/snaps: integration-tests/data/snaps
             integration-tests/data/dev1.acckey: integration-tests/data/dev1.acckey
