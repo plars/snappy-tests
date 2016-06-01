@@ -2,6 +2,7 @@ name: snappy-tests
 version: 0.1
 summary: Snappy integration tests
 description: Integration tests from snappy
+confinement: devmode
 
 apps:
     snappy-tests-list:
