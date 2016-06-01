@@ -12,7 +12,7 @@ class GoTestPlugin(GoPlugin):
     def build(self):
         install_bin_path = os.path.join(self.installdir, 'bin')
         os.makedirs(install_bin_path, exist_ok=True)
-        self._run(['go', 'test', '-c', 'snapd/integration-tests/tests', '-o', os.path.join(install_bin_path, 'snappy-tests')])
+        self._run(['go', 'test', '-c', 'snapd/integration-tests/tests', '-test-build-tags=excludereboots,allsnaps', '-o', os.path.join(install_bin_path, 'snappy-tests')])
         return
 """
     def build(self):
